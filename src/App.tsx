@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { BIRD_HEIGHT, GRAVITY, PIPE_GAP, PIPE_SPEED, PIPE_WIDTH, WALL_HEIGHT, WALL_WIDTH } from './constants';
-import './App.scss'
 import Pipe from './components/Pipe';
 import Bird from './components/Bird';
+import './App.scss'
 
 function App() {
   const [isStart, setIsStart] = useState(false);
@@ -10,9 +10,6 @@ function App() {
   const [pipeHeight, setPipeHeight] = useState(0);
   const [pipePosition, setPipePosition] = useState(WALL_WIDTH);
   const [score, setScore] = useState<number>(0);
-
-
-
 
   useEffect(() => {
     let intVal: number;
@@ -37,6 +34,7 @@ function App() {
     } else {
       setPipePosition(WALL_WIDTH);
       setPipeHeight(Math.floor(Math.random() * (WALL_HEIGHT - PIPE_GAP)));
+
       if (isStart) setScore((score) => score + 1);
     }
   }, [isStart, pipePosition]);
